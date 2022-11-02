@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  - let results=[{oat_flavour:"vanila",oat_price:50,oat_quantity:100},{oat_flavour:"dryfruits",oat_price:200,oat_quantity:200},{oat_flavour:"overnight",oat_price:100,oat_quantity:200}]
+  div(class="container-fluid")
+  div(class="row")
+   each value,index in results
+    div(class="col-sm-2" onclick=`buy(${index})`)  #{value.oat_flavour} oatmeal, price #{value.oat_price}, quantity #{value.oat_quantity}
+   script.
+    function buy(index)
+    {
+      alert(`Your purchased Item ${index+1}`)
+    }
